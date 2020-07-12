@@ -25,6 +25,13 @@ class BasicTest(unittest.TestCase):
             'password':'yafiabiyyu'
         })
         self.assertEqual(response.status_code,200)
+    
+    def test_send_ether(self):
+        response = self.app.post('/web3/send/ether',json={
+            'address_to':'0xd8175A41e257e0705A1D1089DDF6A060904c3090',
+            'amount':float(0.002)
+        })
+        self.assertEqual(response.status_code,200)
 
 if __name__ == "__main__":
     unittest.main()
